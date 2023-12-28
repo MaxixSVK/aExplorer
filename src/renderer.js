@@ -86,12 +86,33 @@ function showPopup(anime) {
   const popup = document.createElement('div');
   popup.classList.add('popup');
 
+  const title = document.createElement('h1');
+  title.textContent = anime.media.title.english || anime.media.title.native;
+  popup.appendChild(title);
+
+  const content = document.createElement('div');
+  content.classList.add('popup-content');
+  popup.appendChild(content);
+
+  const data = document.createElement('div');
+  data.classList.add('popup-data');
+  content.appendChild(data);
+
+  const imgDiv = document.createElement('div');
+  imgDiv.classList.add('popup-img');
+  content.appendChild(imgDiv);
+
+  const img = document.createElement('img');
+  img.src = anime.media.coverImage.large;
+  imgDiv.appendChild(img);
+
   const startDate = document.createElement('p');
   if (anime.startedAt.year && anime.startedAt.month && anime.startedAt.day) {
     startDate.textContent = `Started watching: ${anime.startedAt.year}-${anime.startedAt.month}-${anime.startedAt.day}`;
   } else {
     startDate.textContent = 'Started watching: No data';
   }
+  data.appendChild(startDate);
 
   const endDate = document.createElement('p');
   if (anime.completedAt.year && anime.completedAt.month && anime.completedAt.day) {
@@ -99,6 +120,7 @@ function showPopup(anime) {
   } else {
     endDate.textContent = 'Finished watching: No data';
   }
+  data.appendChild(endDate);
 
   const userScore = document.createElement('p');
   if (anime.score > 0) {
@@ -106,10 +128,7 @@ function showPopup(anime) {
   } else {
     userScore.textContent = "User's score: No data";
   }
-
-  popup.appendChild(startDate);
-  popup.appendChild(endDate);
-  popup.appendChild(userScore);
+  data.appendChild(userScore);
 
   document.body.appendChild(popup);
 
