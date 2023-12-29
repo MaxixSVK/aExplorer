@@ -18,8 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
                   native
                 }
                 coverImage {
-                  large
+                  extraLarge
                 }
+                bannerImage
                 episodes
               }
               progress
@@ -45,6 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
       .then(response => {
         document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('footer').style.display = 'none';
         document.querySelector('.username-text').textContent = username;
         const animeList = response.data.data.MediaListCollection.lists.flatMap(list => list.entries);
         const container = document.getElementById('anime-list');
@@ -61,7 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
           progress.classList.add('anime-progress'); 
 
           const image = document.createElement('img');
-          image.src = anime.media.coverImage.large;
+          image.src = anime.media.coverImage.extraLarge;
           image.classList.add('anime-image'); 
 
           listItem.appendChild(text);
@@ -75,7 +77,11 @@ window.addEventListener('DOMContentLoaded', () => {
         });
       })
       .catch(error => {
-        console.error(error);
+        document.querySelector('.username-text').textContent = '';
+        document.getElementById('loading-screen').style.display = '';
+        document.getElementById('footer').style.display = '';
+        document.getElementById('loading-screen').innerHTML = `<h1>Error</h1><p>Cound\'t fetch data, please check username</p><p>${error}</p>`;
+
       });
   });
 });
@@ -99,11 +105,11 @@ function showPopup(anime) {
   content.appendChild(data);
 
   const imgDiv = document.createElement('div');
-  imgDiv.classList.add('popup-img');
   content.appendChild(imgDiv);
 
   const img = document.createElement('img');
-  img.src = anime.media.coverImage.large;
+  img.src = anime.media.coverImage.extraLarge;
+  img.classList.add('popup-img');
   imgDiv.appendChild(img);
 
   const startDate = document.createElement('p');
