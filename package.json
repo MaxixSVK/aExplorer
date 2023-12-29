@@ -1,7 +1,7 @@
 {
   "name": "anime-list-viewer",
-  "version": "0.0.1",
-  "description": "app to view anime list",
+  "version": "0.0.2",
+  "description": "App to view anime list from AniList",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
