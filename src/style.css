@@ -186,6 +186,10 @@ body {
     z-index: 999;
 }
 
+.no-scroll {
+    overflow: hidden;
+  }
+
 footer {
     position: fixed;
     bottom: 0;

@@ -165,6 +165,9 @@ function showPopup(anime) {
 
   let overlay = document.createElement('div');
   overlay.id = 'overlay';
+  
+  document.body.appendChild(overlay);
+  document.body.classList.add('no-scroll'); 
 
   document.body.appendChild(overlay);
 
@@ -173,6 +176,7 @@ function showPopup(anime) {
       setTimeout(() => {
         popup.remove();
         overlay.remove();
+        document.body.classList.remove('no-scroll');
         document.removeEventListener('click', closePopup);
       }, 0);
     }
@@ -279,6 +283,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         let overlay = document.createElement('div');
         overlay.id = 'overlay';
+        
+        document.body.appendChild(overlay);
+        document.body.classList.add('no-scroll'); 
 
         document.body.appendChild(overlay);
 
@@ -287,6 +294,7 @@ window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
               popup.remove();
               overlay.remove();
+              document.body.classList.remove('no-scroll');
               document.removeEventListener('click', closePopup);
             }, 0);
           }

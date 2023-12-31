@@ -1,6 +1,6 @@
 {
   "name": "aexplorer",
-  "version": "0.0.2",
+  "version": "0.0.25",
   "description": "App to view anime list from AniList",
   "main": "src/main.js",
   "scripts": {
