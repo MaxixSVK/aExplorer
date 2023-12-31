@@ -148,6 +148,13 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
+    overflow: hidden;
+}
+
+.popup-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
 .popup-data {
@@ -159,6 +166,7 @@ body {
     height: 30rem;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .popup-img {
